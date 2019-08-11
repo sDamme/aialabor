@@ -1,0 +1,92 @@
+.gradient {
+    background: linear-gradient(to bottom,rgba(0,0,0,.5) 0,transparent 100%);
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    top: 0;
+    left: 0;
+    z-index: 250;
+}
+.animate {
+    transition: all .8s cubic-bezier(.455,.03,.515,.955);
+}
+.icon-right {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+.title-container {
+    height: 50%;
+    box-shadow: inset 1px -95px 85px 1px rgba(0, 0, 0, 0.75);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+section.first{
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    article.main-img {
+        .main-img-title {
+            color: white;
+            position: absolute;
+            bottom: 20vh;
+            font-size: 57px;
+            width: 46vw;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            background: rgba(0,0,0,0.7);
+            padding: 25px;
+        }
+        img {
+            width: 100%;
+            height: 100vh;
+        }
+    }
+    article.side-slider{
+        height: 100vh;
+        overflow:hidden;
+    }
+}
+.products {
+    width: 90%;
+    margin: 0 auto;
+    .products-title {
+        width: 98%;
+        padding: 0 1%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    article {
+        width: 100%;
+        float: left;
+        
+        &.aiaposti-moodulid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 20px;
+            width: 98% !important;
+            padding: 40px 1%;
+        }
+        &.soklid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 20px;
+            width: 98% !important;
+            padding: 40px 1%;
+        }
+        &.postimytsid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 20px;
+            width: 98% !important;
+            padding: 40px 1%;
+        }
+    }
+}
+    
+.content-overlay {
+    display: none;
+    position: absolute;
+}
+
+
+

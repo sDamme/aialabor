@@ -1,0 +1,42 @@
+<div class="gradient animate"></div>
+<section class="first">
+  <article class="main-img">
+    <img src="../../../assets/aialabor_1.jpg" alt="Aiavärav">
+    <div class="title-container">
+      <p class="main-img-title">Teeme betoonist aiaposte, mooduleid ja sokleid</p>
+    </div>
+  </article>
+  <article class="side-slider">
+    <app-sideslider></app-sideslider>
+  </article>
+</section>
+
+<section class="products" *ngFor="let product of products">  
+  <h1 class="products-title">{{product['key']}}</h1>
+  <article class="aiaposti-moodulid" >  
+      <mat-card *ngFor="let prod of product['value']; let i = index">
+          <mat-card-title>{{prod['name']}}</mat-card-title>
+          
+          <i class="material-icons icon-right"(click)="togglePanel[prod.id] = !togglePanel[prod.id]">info</i>
+          <div class="" *ngIf="togglePanel[prod.id]">Some hidden content
+            <mat-card-content>{{prod['info']}}</mat-card-content>
+            <mat-card-content>{{prod['info2']}}</mat-card-content>
+            <mat-card-content>{{prod['info3']}}</mat-card-content>
+          </div>
+          <div style="float: left; width: 45%; margin-top: 30px;">
+            <img *ngIf="!togglePanel[prod.id]" mat-card-image [src]="prod['imagePath']">
+          </div>
+          <div style="float: right; width: 45%; font-weight: bold; padding-top: 45px;">
+            <mat-card-content>{{prod['info']}}</mat-card-content>
+            <mat-card-content>{{prod['info2']}}</mat-card-content>
+            <mat-card-content>{{prod['info3']}}</mat-card-content>
+  
+          </div>
+        </mat-card>
+  </article>
+</section>
+<section>
+  <article class="transport"></article>
+  <article></article>
+</section>
+<section></section>

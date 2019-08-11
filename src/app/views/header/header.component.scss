@@ -1,0 +1,23 @@
+.logo {
+    float: left;
+    margin: 10px;
+    color: white;
+    font-size: 25px;
+    z-index: 300;
+    position: absolute;
+}
+ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+    z-index: 300;
+    position: absolute;
+    right: 2vw;
+    li {
+        float: left;
+        margin: 10px;
+        color: white;
+        font-size: 25px;
+        z-index: 300;
+    }
+}
