@@ -1,3 +1,4 @@
+@import './../../../styles.scss';
 .gradient {
     background: linear-gradient(to bottom,rgba(0,0,0,.5) 0,transparent 100%);
     position: absolute;
@@ -22,9 +23,41 @@
     position: absolute;
     bottom: 0;
 }
+.contact{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+}
+  @include md {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include sm {
+    grid-template-columns: 1fr;
+  }
+  article{
+    height: 200px;
+    border: 1px solid black;
+    h3{
+      font-size: 30px;
+      text-align: center;
+      padding: 30px 0;
+    }
+    p {
+      text-align: center;
+      padding: 0 50px;
+      font-size: 22px;
+    }
+  }
+}
 section.first{
     display: grid;
     grid-template-columns: 7fr 3fr;
+    margin-bottom: 60px;
+    @include sm {
+      grid-template-columns: 1fr;
+    }
     article.main-img {
         .main-img-title {
             color: white;
@@ -44,6 +77,9 @@ section.first{
     article.side-slider{
         height: 100vh;
         overflow:hidden;
+        @include sm {
+          display: none;
+        }
     }
 }
 .products {
@@ -52,8 +88,9 @@ section.first{
     .products-title {
         width: 98%;
         padding: 0 1%;
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
+        text-decoration: underline;
     }
     article {
         width: 100%;
@@ -61,28 +98,50 @@ section.first{
         
         &.aiaposti-moodulid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+           
             grid-column-gap: 20px;
             width: 98% !important;
             padding: 40px 1%;
+            @include sm {
+                grid-template-columns: 1fr;
+            }
+            @include md {
+                grid-template-columns: 1fr 1fr;
+            }
+            @include lg {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
         }
-        &.soklid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-column-gap: 20px;
-            width: 98% !important;
-            padding: 40px 1%;
-        }
-        &.postimytsid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-column-gap: 20px;
-            width: 98% !important;
-            padding: 40px 1%;
-        }
+        
     }
 }
-    
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 1px;
+    margin: 0 1px
+  }  
+.circles{
+    text-align: right;
+    .gold {
+        background-color: #C2A56B;
+    }
+    .white{
+        background-color: #BDB2AE;
+    }
+    .gray{
+        background-color: #87868B;
+    }
+    .light-brown{
+        background-color: #7B5B5C;
+    }
+    .brown{
+        background-color: #89433B;
+    }
+}    
 .content-overlay {
     display: none;
     position: absolute;
@@ -90,3 +149,84 @@ section.first{
 
 
 
+.aniT {
+    transition: all 1s linear;
+  }
+  
+  .transition {
+    transition: all 0.3s ease-in-out !important;
+  }
+  
+  .carousel {
+    .content {
+      display: flex;
+      height: 100%;
+      .item {
+        width: 100%;
+        display: block;
+  
+        .img {
+          width: 100%;
+          display: block;
+          background-size: cover;
+          background-position: center;
+          height: 100%;
+          
+        }
+      }
+    }
+  
+    .item {
+      width: 100%;
+      display: block;
+  
+      .img {
+        width: 100%;
+        display: block;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  
+    .ball {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: black;
+      border: 2px solid;
+      opacity: 0.5;
+  
+      &.visible {
+        opacity: 1;
+      }
+    }
+  
+    .progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 5px;
+      background: #ff5252;
+    }
+  
+    .click-area {
+      width: 50px;
+      text-align: center;
+  
+      i {
+        font-size: 3em;
+      }
+    }
+  }
+
+  .sideslider-title {
+    color: white;
+    position: absolute;
+    bottom: 20vh;
+    font-size: 40px;
+    width: 26vw;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    background: rgba(0,0,0,0.7);
+}

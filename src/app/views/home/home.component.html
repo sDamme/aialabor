@@ -7,36 +7,93 @@
     </div>
   </article>
   <article class="side-slider">
-    <app-sideslider></app-sideslider>
+    <ngx-hm-carousel #carousel
+    [(ngModel)]="index"
+    (ngModelChange)="indexChanged($event)"
+    [autoplay-speed]="speed"
+    [autoplay]="autoplay"
+    [autoplay-direction]="direction"
+    [infinite]="infinite"
+    [between-delay]="2000"
+    [mourse-enable]="true"
+    [data]="avatars"
+    [aniTime]="400"
+    class="carousel c-accent">
+  
+    <section ngx-hm-carousel-container class="content">
+      <article class="item cursor-pointer"
+        ngx-hm-carousel-item
+        *ngFor="let avatar of avatars" >
+        <div class="img"
+          [style.backgroundImage]="'url('+avatar.url+')'">
+        </div>
+        <p class="sideslider-title">{{avatar.title}}</p>
+      </article>
+      <ng-template #infiniteContainer></ng-template>
+    </section>
+  
+    <ng-template #carouselContent let-avatar let-i="index">
+      <article class="item cursor-pointer">
+        <div class="img"
+          [style.backgroundImage]="'url('+avatar.url+')'"  [ngClass]="{'visible': currentIndex===i}">
+        </div>
+      </article>
+    </ng-template>
+  
+    <ng-template #carouselDot let-model>
+      <div class="ball bg-accent"
+        [class.visible]="model.index === model.currentIndex"></div>
+    </ng-template>
+  
+    <ng-template #carouselProgress>
+      <div class="progress"></div>
+    </ng-template>
+  
+  </ngx-hm-carousel>
   </article>
 </section>
 
-<section class="products" *ngFor="let product of products">  
+<section id="Tooted" class="products" *ngFor="let product of products">  
   <h1 class="products-title">{{product['key']}}</h1>
   <article class="aiaposti-moodulid" >  
       <mat-card *ngFor="let prod of product['value']; let i = index">
           <mat-card-title>{{prod['name']}}</mat-card-title>
-          
-          <i class="material-icons icon-right"(click)="togglePanel[prod.id] = !togglePanel[prod.id]">info</i>
-          <div class="" *ngIf="togglePanel[prod.id]">Some hidden content
-            <mat-card-content>{{prod['info']}}</mat-card-content>
-            <mat-card-content>{{prod['info2']}}</mat-card-content>
-            <mat-card-content>{{prod['info3']}}</mat-card-content>
-          </div>
           <div style="float: left; width: 45%; margin-top: 30px;">
-            <img *ngIf="!togglePanel[prod.id]" mat-card-image [src]="prod['imagePath']">
+            <img mat-card-image [src]="prod['imagePath']">
+            <div class="circles">
+              <span class="dot gold"></span>
+              <span class="dot white"></span>
+              <span class="dot gray"></span>
+              <span class="dot light-brown"></span>
+              <span class="dot brown"></span>
+            </div>
           </div>
           <div style="float: right; width: 45%; font-weight: bold; padding-top: 45px;">
             <mat-card-content>{{prod['info']}}</mat-card-content>
             <mat-card-content>{{prod['info2']}}</mat-card-content>
             <mat-card-content>{{prod['info3']}}</mat-card-content>
-  
           </div>
         </mat-card>
   </article>
 </section>
-<section>
-  <article class="transport"></article>
-  <article></article>
+<section id="Kontakt" class="contact">
+ <article>
+   <h3>Kontakt</h3>
+   <p>Asume Tartu külje all Külitses, Tartu – Valga maantee ääres, 
+    linnast välja sõites 6km.</p>
+ </article>
+ <article>
+  <h3>Asukoht</h3>
+  <p>Lennuvälja tee 13, Külitse alevik,</p>
+  <p>Ülenurme vald, 61702 Tartumaa </p>
+ </article>
+ <article>
+  <h3>Email</h3>
+  <p>info@aialabor.ee</p>
+ </article>
+ <article>
+  <h3>Telefon</h3>
+  <p>+372 569 53111</p>
+ </article>
 </section>
 <section></section>
